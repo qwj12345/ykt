@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "phone-modal": "/components/phone-modal/phone-modal",
+    "sq-modal": "/components/sq-modal/sq-modal",
+    "my-toast": "/components/my-toast/my-toast",
+    "wyb-loading": "/components/wyb-loading/wyb-loading"
+  }
+}

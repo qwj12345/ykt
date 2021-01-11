@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "幸运抽奖",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#DBCD60",
+  "usingComponents": {
+    "e-modal": "/components/e-modal/e-modal",
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast",
+    "my-modal": "/components/my-modal/my-modal"
+  }
+}

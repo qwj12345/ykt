@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/welfare/welfare",
+    "pages/children/children",
+    "pages/mine/mine",
+    "pages/childDetail/childDetail",
+    "pages/childInfo/childInfo",
+    "pages/timeTable/timeTable",
+    "pages/editTable/editTable",
+    "pages/follow/follow",
+    "pages/register/register",
+    "pages/integral/integral",
+    "pages/bags/bags",
+    "pages/repair/repair",
+    "pages/record/record",
+    "pages/myInfo/myInfo",
+    "pages/message/message",
+    "pages/articleDetail/articleDetail",
+    "pages/comingsoon/comingsoon",
+    "pages/classWeight/classWeight",
+    "pages/reportDetail/reportDetail",
+    "pages/lottery/lottery",
+    "pages/rules/rules",
+    "pages/h5/h5"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "GMTforkids会员中心",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/tabbars/tabbar1.png",
+        "selectedIconPath": "static/images/tabbars/tabbar1_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/welfare/welfare",
+        "iconPath": "static/images/tabbars/tabbar2.png",
+        "selectedIconPath": "static/images/tabbars/tabbar2_active.png",
+        "text": "会员福利"
+      },
+      {
+        "pagePath": "pages/children/children",
+        "iconPath": "static/images/tabbars/tabbar3.png",
+        "selectedIconPath": "static/images/tabbars/tabbar3_active.png",
+        "text": "我的孩子"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/images/tabbars/tabbar4.png",
+        "selectedIconPath": "static/images/tabbars/tabbar4_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取您的地理位置以获取天气信息"
+    }
+  },
+  "uniStatistics": {
+    "enable": true
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap62.json"
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "e-modal": "/components/e-modal/e-modal"
+  },
+  "component": true
+}

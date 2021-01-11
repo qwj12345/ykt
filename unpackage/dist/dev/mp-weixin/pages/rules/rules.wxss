@@ -1,0 +1,63 @@
+page {
+  background: #efeff4;
+}
+._img,
+image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.display-between-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.fix-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  padding: 20rpx 0 40rpx;
+}
+.back-btn-color {
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+}
+.bootom-l-btn {
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+  width: 600rpx;
+  margin: 60rpx auto;
+  box-sizing: border-box;
+  height: 96rpx;
+  border-radius: 48rpx;
+  color: #fff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
+  line-height: 96rpx;
+  box-shadow: 0 4rpx 16rpx 0rpx #ff9b1f;
+}
+page {
+  background: #fbfbfb;
+}
+#rule {
+  padding: 30rpx 24rpx;
+}
+#rule ._img,
+#rule image {
+  max-width: 726rpx;
+}
+

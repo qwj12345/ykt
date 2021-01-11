@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "e-modal": "/components/e-modal/e-modal",
+    "my-toast": "/components/my-toast/my-toast",
+    "wyb-loading": "/components/wyb-loading/wyb-loading"
+  }
+}

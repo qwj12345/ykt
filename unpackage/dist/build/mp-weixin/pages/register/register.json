@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast",
+    "my-modal": "/components/my-modal/my-modal",
+    "phone-modal": "/components/phone-modal/phone-modal",
+    "sq-modal": "/components/sq-modal/sq-modal",
+    "q-spicker": "/components/QuShe-picker/QuShe-picker"
+  }
+}

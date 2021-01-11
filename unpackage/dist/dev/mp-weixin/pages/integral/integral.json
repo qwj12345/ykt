@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "GMTforkids会员中心",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#F49D1A",
+  "usingComponents": {
+    "page-top": "/components/page-top/page-top",
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast",
+    "my-modal": "/components/my-modal/my-modal"
+  }
+}

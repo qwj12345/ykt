@@ -1,0 +1,97 @@
+page {
+  background: #efeff4;
+}
+._img,
+image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.display-between-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.fix-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  padding: 20rpx 0 40rpx;
+}
+.back-btn-color {
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+}
+.bootom-l-btn {
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+  width: 600rpx;
+  margin: 60rpx auto;
+  box-sizing: border-box;
+  height: 96rpx;
+  border-radius: 48rpx;
+  color: #fff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
+  line-height: 96rpx;
+  box-shadow: 0 4rpx 16rpx 0rpx #ff9b1f;
+}
+#mine .user-operate {
+  padding: 40rpx 30rpx;
+  width: 682rpx;
+  margin: 0 auto;
+  border-radius: 16rpx;
+  position: relative;
+  margin-top: -140rpx;
+  background: #fff;
+  z-index: 5;
+  box-sizing: border-box;
+}
+#mine .operate-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 14rpx 0px;
+  box-sizing: border-box;
+}
+#mine .o-left {
+  font-size: 30rpx;
+  color: #333;
+  letter-spacing: 2rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+#mine .o-img {
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 20rpx;
+}
+#mine .o-right {
+  width: 30rpx;
+  height: 30rpx;
+}
+

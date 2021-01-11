@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "儿童基础信息管理",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast",
+    "q-spicker": "/components/QuShe-picker/QuShe-picker"
+  }
+}

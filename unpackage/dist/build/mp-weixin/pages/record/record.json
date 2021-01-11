@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "积分记录",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#F49D1A",
+  "usingComponents": {
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast"
+  }
+}

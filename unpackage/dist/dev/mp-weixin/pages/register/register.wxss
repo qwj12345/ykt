@@ -1,0 +1,150 @@
+page {
+  background: #efeff4;
+}
+._img,
+image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.display-between-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.fix-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  padding: 20rpx 0 40rpx;
+}
+.back-btn-color {
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+}
+.bootom-l-btn {
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+  width: 600rpx;
+  margin: 60rpx auto;
+  box-sizing: border-box;
+  height: 96rpx;
+  border-radius: 48rpx;
+  color: #fff;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
+  line-height: 96rpx;
+  box-shadow: 0 4rpx 16rpx 0rpx #ff9b1f;
+}
+page {
+  background: #fff;
+}
+.register {
+  padding: 40rpx 10vw 60rpx;
+}
+.register .question {
+  position: fixed;
+  top: 24rpx;
+  right: 40rpx;
+  width: 38rpx;
+  height: 38rpx;
+}
+.register .scan-code {
+  width: 280rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 30rpx;
+  color: #f49d1a;
+  letter-spacing: 2rpx;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.register .scan-img {
+  width: 150px;
+  height: 150px;
+}
+.register .input {
+  margin-top: 32rpx;
+  height: 84rpx;
+  padding: 0 36rpx;
+  border: 2rpx solid #e7e7e7;
+  border-radius: 42rpx;
+  color: #666;
+  font-size: 24rpx;
+  box-sizing: border-box;
+}
+.register .input-time {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.register .time-title {
+  color: #000;
+  letter-spacing: 2rpx;
+  padding-right: 26rpx;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  border-right: 1px solid #e5e5e5;
+}
+.register .sel-time {
+  padding-left: 20rpx;
+  color: #b2b2b2;
+  width: calc(100% - 180rpx);
+}
+.register .color6 {
+  color: #666;
+}
+.register .form-text {
+  margin-top: 8px;
+  padding-left: 10px;
+  font-size: 10px;
+  color: #b2b2b2;
+}
+.register .input-placeholder {
+  color: #b2b2b2;
+}
+.register .z-btn {
+  margin-bottom: 40rpx;
+  margin-top: 100rpx;
+}
+.register .s-btn {
+  box-sizing: border-box;
+  border: 2rpx solid #f49d1a;
+  color: #f49d1a;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  border-radius: 48rpx;
+}
+.reg-text3 {
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
+}
+

@@ -1,0 +1,87 @@
+.modal.data-v-3707fabc {
+  width: 600rpx;
+  border-radius: 16rpx;
+  background: -webkit-linear-gradient(top, #fdecd3, #ffffff);
+  background: linear-gradient(to bottom, #fdecd3, #ffffff);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 20;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.modal .left-icon.data-v-3707fabc {
+  position: absolute;
+  left: -4rpx;
+  top: -2rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+.modal .logo.data-v-3707fabc {
+  width: 180rpx;
+  height: 180rpx;
+  margin-top: 80rpx;
+}
+.modal .title.data-v-3707fabc {
+  margin-top: 30rpx;
+  font-size: 36rpx;
+  letter-spacing: 4rpx;
+  font-weight: bold;
+}
+.modal .left-content.data-v-3707fabc {
+  width: 520rpx;
+  margin: 140rpx auto 50rpx;
+}
+.modal .left-content .text.data-v-3707fabc {
+  font-size: 22rpx;
+  color: #999;
+  letter-spacing: 2rpx;
+}
+.modal .left-content .check.data-v-3707fabc {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+  margin-top: 16rpx;
+}
+.modal .left-content .check radio.data-v-3707fabc {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  margin-left: -8rpx;
+}
+.modal .btn.data-v-3707fabc {
+  width: 380rpx;
+  background: -webkit-linear-gradient(left, #ffa929, #ff831f);
+  background: linear-gradient(left, #ffa929, #ff831f);
+  box-sizing: border-box;
+  height: 88rpx;
+  border-radius: 48rpx;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
+  line-height: 88rpx;
+  box-shadow: 0 2rpx 12rpx 0rpx #ff9b1f;
+}
+.modal .b-btn.data-v-3707fabc {
+  margin-top: 30rpx;
+  color: #b5b5b5;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  margin-bottom: 52rpx;
+}
+
