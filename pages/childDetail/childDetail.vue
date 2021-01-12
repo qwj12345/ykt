@@ -6,14 +6,14 @@
 		</view>
 		<!--  -->
 		<view class="content">
-			<navigator :url="'/pages/childInfo/childInfo?id='+child.id" open-type="navigate" class="item display-between-center">
+			<navigator :url="'/pages/childInfo/childInfo?id='+child._id" open-type="navigate" class="item display-between-center">
 				<view class="right">
 					<view class="child-avatar"><image src="../../static/images/info_icon.png" mode="widthFix"></image></view>
 					<view>儿童基础信息管理</view>
 				</view>
 				<view class="left"><image src="../../static/images/face-right.png" mode="widthFix"></image></view>
 			</navigator>
-			<navigator :url="'/pages/timeTable/timeTable?id='+child.id" open-type="navigate" class="item display-between-center">
+			<navigator :url="'/pages/timeTable/timeTable?id='+child._id" open-type="navigate" class="item display-between-center">
 				<view class="right">
 					<view class="child-avatar"><image src="../../static/images/study_icon.png" mode="widthFix"></image></view>
 					<view>课程表管理</view>

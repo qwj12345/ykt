@@ -2,47 +2,27 @@
 	<view>
 		<view class="page-top">
 			<!-- 有绑定小孩时  -->
-			<view  class="show-top" v-if="isLogin && children.length!==0">
-				<!-- 轮播图 -->
-				<swiper v-if="products.length!==0" circular="true" @change="changeSwiper">
-					<swiper-item v-for="(item,key) in products" :key="key" >
-						<view class="title">{{item.goodsName}}</view>
-						<view class="product-icon"><image :src="item.goodsImg" /></view>
-						<canvas :canvas-id="item.canvasId" id="item" class="charts3"></canvas>
-						<view class="cricle-process">
-							<view class="cricle-process-kg">{{item.weight}}<view>kg</view></view>
-							<view>{{item.text}}</view>
-						</view>
-					</swiper-item>
-				</swiper>
-				<!-- 轮播图下方的点 -->
-				<view v-if="products.length!==0" class="swiper-indicator">
-					<view 	v-for="(item,key) in products" :key="key" style="transition: all .2s linear;"
-							:class="{'sel-indicator-item':swiperIndex === key,'indicator-item':swiperIndex !== key}">
+			<view  class="show-top" v-if="isLogin && students.length!==0">
+				
+				<view class="canvas-content">
+					<canvas canvas-id="canvas" id="item" class="charts3"></canvas>
+					<view class="cricle-process">
+						<view class="cricle-process-kg">{{canvasText}}<view>%</view></view>
+						<view>学习进度</view>
 					</view>
-				</view>
-				<!-- 物品重量 -->
-				<view v-if="products.length!==0" class="add-weight"  @click="goPage('/pages/classWeight/classWeight')">
-					<view class="add-icon" ><image src="../../static/images/litter_add.png" ></image></view><view>物品重量</view> 
-				</view>
-				<!-- 没有绑定时 -->
-				<view v-if="products.length===0" class="hide-top">
-					<image src="../../static/images/no_bing.png" ></image>
-					<view class="text">您还没有绑定产品哦~</view>
-					<view class="btn" @click="goPage('/pages/bags/bags')">去绑定</view>
 				</view>
 				<!-- 选择小孩 -->
 				<view class="choose-child" @click="toggleChoose">
 					<!--  -->
-					<view class="child-icon"><image :src="avatarImg[showChild.sex-1]"></image></view>
-					<view class="child-name">{{showChild.name}}</view>
+					<view class="child-icon"><image :src="avatarImg[showStudent.sex-1]"></image></view>
+					<view class="child-name">{{showStudent.name}}</view>
 					<view class="change-child"><image  src="../../static/images/change.png"></image></view>
 					<!-- 选择框 -->
 					<view class="choose-modal" v-show="showChoose">
-						<view class="item" v-for="(item,key) in children" :key="key" @click.stop="chooseChild(item)">
+						<view class="item" v-for="(item,key) in students" :key="key" @click.stop="chooseChild(item)">
 							<view class="child-icon"><image :src="avatarImg[item.sex-1]" ></image></view>
-							<view class="child-name" :style="{color:item.id===showChild.id?'#000':'#666666'}">{{item.name}}</view>
-							<view class="change-child" v-if="item.id===showChild.id"><image mode="widthFix" src="../../static/images/gou.png"></image></view>
+							<view class="child-name" :style="{color:item._id===showStudent._id?'#000':'#666666'}">{{item.name}}</view>
+							<view class="change-child" v-if="item._id===showStudent._id"><image mode="widthFix" src="../../static/images/gou.png"></image></view>
 						</view>
 					</view>
 				</view>
@@ -93,7 +73,7 @@
 					</view>
 				</view>
 				<!-- 编辑按钮 -->
-				<view class="edit-btn"  @click="goPage('/pages/editTable/editTable?id='+showChild.id)">
+				<view class="edit-btn"  @click="goPage('/pages/editTable/editTable?id='+showStudent.id)">
 					<image src="../../static/images/edit.png" style="height: 100%;"></image>
 				</view>
 			</view>
@@ -101,7 +81,7 @@
 			<view v-else class="hide-class">
 				<image src="../../static/images/no_class.png" ></image>
 				<view  class="text">您还没有添加当天课程哦~</view>
-				<view  class="btn" @click="goPage('/pages/editTable/editTable?id='+showChild.id)">去添加</view>
+				<view  class="btn" @click="goPage('/pages/editTable/editTable?id='+showStudent.id)">去添加</view>
 			</view>
 		</view>
 		
@@ -126,7 +106,7 @@
 <script>
 	import amap from '@/common/amap-wx.js';//高德地图api
 	import uCharts from '../../components/u-charts/u-charts.js';
-	import {timeFormat,timeFormat1} from "../../common/common.js";
+	import {timeFormat,timeFormat1,dateDifference} from "../../common/common.js";
 		
 	let _self;
 	export default {
@@ -158,13 +138,14 @@
 				temphigh:"--",
 				templow:"--",
 				weatherImg:"http://level8cases.oss-cn-hangzhou.aliyuncs.com/weathercn02/29.png",
-				children:[],
+				students:[],
+				canvasText:'0',
 				avatarImg:[require("../../static/images/l_boy.png"),require("../../static/images/l_gril.png")],
-				showChild:{},//当前小孩
+				showStudent:{},//当前小孩
 				 products:[],
 				 amSubjects:[],//课表信息
 				 pmSubjects:[],
-				 showChildId:0//为了不多次改变showChild会多次请求课表
+				 showStudentId:0//为了不多次改变showStudent会多次请求课表
 			}
 		},
 		computed:{
@@ -180,7 +161,7 @@
 					this.getStudent();	
 				}
 			},
-			showChild: {
+			showStudent: {
 			  handler(newName, oldName) {
 				 this.getSubject();
 			  },
@@ -196,7 +177,7 @@
 			// 
 			goPage(url){
 				if(this.isLogin){
-					if(url.search('editTable')!==-1 && this.children.length===0){//还没有小孩子时无法编辑课表
+					if(url.search('editTable')!==-1 && this.students.length===0){//还没有小孩子时无法编辑课表
 						this.toastTitle = "请先添加小孩";
 						this.toastType = "none";
 						this.$refs.toast.showLoading();
@@ -221,51 +202,45 @@
 			},
 			// 选择孩子
 			chooseChild(item){
-				if(this.showChild.id !== item.id){
-					this.showChildId = item.id;
+				if(this.showStudent.id !== item.id){
+					this.showStudentId = item.id;
 					this.toggleChoose();
-					this.getChildDetail();
+					this.getStudentDetail();
 				}
 			},
 			// 获取孩子列表
 			getStudent(){
 				this.myRequest("student/findStudent",{data:{},method:'GET',contentType:"application/json"}).then(res =>{
 					if(res.data.code===200 && res.data.data.length!==0){
-						this.children = res.data.data;
-						this.showChildId = res.data.data[0].id;
-						// this.getChildDetail();
+						this.students = res.data.data;
+						this.showStudentId = res.data.data[0]._id;
+						this.getStudentDetail();
 					}
 				})
 			},
 			// 获取儿童详情  
-			getChildDetail(){
+			getStudentDetail(){
 				let data = {
-					id:this.showChildId,
-					isWeightCalculation:true//是否显示重量
+					id:this.showStudentId,
 				}
 				
 				this.$refs.loading.showLoading() // 显示
-				this.myRequest("gmt/api/gmtChild/child/gmtChildDetail",{data}).then(res =>{ 
+				this.myRequest("student/findStudentDetail",{data,method:'GET'}).then(res =>{ 
 					this.$refs.loading.hideLoading() //  101
-					if(res.data.code===0){
-						this.showChild = res.data.data;
-						this.list = [];
-						this.showChild.childBags.forEach((item,key) => {
-							item.weight = (item.goodsWeight + this.showChild.weightCalculation.actualWeight).toFixed(1);
-							item.canvasId = 'canvas'+key;
-							let dataL = item.weight/(this.showChild.weightCalculation.maxWeight+this.showChild.weightCalculation.standardWeight);
-							dataL>=1 ? item.text="已超重" : item.text="重量正常";
-							
-							let chartData = {
-								series: [{
-									data: dataL>=1 ? 1 : dataL,
-									color: dataL>=1 ? 'rgb(232,56,58)' : 'rgb(255,255,255)' 
-								}]
-							}
-							// 
-							this.showArcbar('canvas'+key,chartData);
-						})
-						this.products = JSON.parse(JSON.stringify(this.showChild.childBags));
+					if(res.data.code===200){
+						this.showStudent = res.data.data;
+						console.log(11,timeFormat1(new Date(),3))
+						let dataL = dateDifference(this.showStudent.startTime,timeFormat1(new Date(),3)) / dateDifference(this.showStudent.startTime,this.showStudent.endTime);
+						this.canvasText = dataL>=1?'100':Math.round(dataL*100);
+						let chartData = {
+							series: [{
+								data: dataL>=1 ? 1 : dataL,
+								color: dataL>=1 ? 'rgb(232,56,58)' : 'rgb(255,255,255)' 
+							}]
+						}
+						// 	
+						this.showArcbar('canvas',chartData);
+						// this.products = JSON.parse(JSON.stringify(this.showStudent.childBags));
 					}else{
 						this.toastType = "error";
 						this.toastTitle = "请求错误";
@@ -346,40 +321,40 @@
 			},
 			// 获取课表
 			getSubject(){
-				if(this.showChild.id){
-					let data = {
-						childId :this.showChild.id,
-						weekIndex:this.nowDay.week===0? 7 : this.nowDay.week
-					}
-					// 
+		// 		if(this.showStudent.id){
+		// 			let data = {
+		// 				childId :this.showStudent.id,
+		// 				weekIndex:this.nowDay.week===0? 7 : this.nowDay.week
+		// 			}
+		// 			// 
 			
-					this.myRequest('gmt/api/gmtChild/gmtChildClassCard/getGroupInfo',{data}).then(res => {
+		// 			this.myRequest('gmt/api/gmtChild/gmtChildClassCard/getGroupInfo',{data}).then(res => {
 		
-						if(res.data.code===0){
-							let subject = res.data.data;
-							// 获取上午课表
-							this.amSubjects = [];
-							this.pmSubjects = [];
-							for(let i=1;i<=4;i++){
-								if(subject[this.nowDay.week+'_'+i]){
-									this.amSubjects.push(subject[this.nowDay.week+'_'+i].classCardName);
-								}
-							}
-							// 获取下午课表
-							 for(let i=5;i<=8;i++){
-								if(subject[this.nowDay.week+'_'+i]){
-									this.pmSubjects.push(subject[this.nowDay.week+'_'+i].classCardName);
-								}
-							 }
+		// 				if(res.data.code===0){
+		// 					let subject = res.data.data;
+		// 					// 获取上午课表
+		// 					this.amSubjects = [];
+		// 					this.pmSubjects = [];
+		// 					for(let i=1;i<=4;i++){
+		// 						if(subject[this.nowDay.week+'_'+i]){
+		// 							this.amSubjects.push(subject[this.nowDay.week+'_'+i].classCardName);
+		// 						}
+		// 					}
+		// 					// 获取下午课表
+		// 					 for(let i=5;i<=8;i++){
+		// 						if(subject[this.nowDay.week+'_'+i]){
+		// 							this.pmSubjects.push(subject[this.nowDay.week+'_'+i].classCardName);
+		// 						}
+		// 					 }
 							 
-						}else{
-							this.toastType = "error";
-							this.toastTitle = "课表请求错误";
-							this.$refs.toast.showLoading() // 显示
-						}
+		// 				}else{
+		// 					this.toastType = "error";
+		// 					this.toastTitle = "课表请求错误";
+		// 					this.$refs.toast.showLoading() // 显示
+		// 				}
 						
-					})
-				}
+		// 			})
+		// 		}
 			}
 		},
 		onShareAppMessage(res) {
@@ -391,16 +366,16 @@
 		onShow(){
 			// if(getApp().globalData.subjectFlag===1){
 			// 	getApp().globalData.subjectFlag = 0;
-			// 	this.getChildDetail();
+			// 	this.getStudentDetail();
 			// }
 			// if(getApp().globalData.bagFlag === 1){
 			// 	getApp().globalData.bagFlag = 0;
-			// 	this.getChildDetail();
+			// 	this.getStudentDetail();
 			// }
-			// if(getApp().globalData.homeChildFlag===1){
-			// 	getApp().globalData.homeChildFlag = 0;
-			// 	this.getStudent();
-			// }
+			if(getApp().globalData.homeChildFlag===1){
+				getApp().globalData.homeChildFlag = 0;
+				this.getStudent();
+			}
 		},
 		onLoad(query) {
 
@@ -429,11 +404,11 @@
 		.show-top{
 			height: @topHeight;
 			position: relative;
-			swiper{
+			.canvas-content{
+				position: relative;
 				height:380upx;
-				swiper-item{
-					display: flex;
-					justify-content: center;
+				display: flex;
+				justify-content: center;
 					.title{
 						position: absolute;
 						left: 50%;
@@ -460,7 +435,7 @@
 						position: absolute;
 						left: 50%;
 						top: 50%;
-						transform: translate(-50%,-20%);
+						transform: translate(-50%,-30%);
 						color: #fff;
 						text-align: center;
 						font-size: 22upx;
@@ -478,7 +453,7 @@
 							}
 						}
 					}
-				}
+				
 			}
 			// 轮播图下方的点
 			.swiper-indicator{
@@ -567,6 +542,7 @@
 						
 						.change-child{
 							width: 24upx;
+							height: auto;
 						}
 					}
 					.item:last-child{

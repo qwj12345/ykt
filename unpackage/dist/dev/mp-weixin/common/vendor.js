@@ -1729,14 +1729,14 @@ uni$1;exports.default = _default;
 /***/ }),
 
 /***/ 12:
-/*!******************************************!*\
-  !*** E:/VUE/gmtforkids/common/common.js ***!
-  \******************************************/
+/*!**************************************!*\
+  !*** E:/uniapp/ykt/common/common.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.timeFormat = timeFormat;exports.timeFormat1 = timeFormat1;exports.myRequest = myRequest;exports.myRequest2 = myRequest2;exports.loginUser = loginUser;exports.getToken = getToken;exports.userToken = userToken;exports.myLogin = myLogin;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));var _global = _interopRequireDefault(__webpack_require__(/*! @/common/global */ 16));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.timeFormat = timeFormat;exports.timeFormat1 = timeFormat1;exports.dateDifference = dateDifference;exports.myRequest = myRequest;exports.myRequest2 = myRequest2;exports.loginUser = loginUser;exports.getToken = getToken;exports.userToken = userToken;exports.myLogin = myLogin;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 13));var _global = _interopRequireDefault(__webpack_require__(/*! @/common/global */ 16));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/store/index.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _objectWithoutProperties(source, excluded) {if (source == null) return {};var target = _objectWithoutPropertiesLoose(source, excluded);var key, i;if (Object.getOwnPropertySymbols) {var sourceSymbolKeys = Object.getOwnPropertySymbols(source);for (i = 0; i < sourceSymbolKeys.length; i++) {key = sourceSymbolKeys[i];if (excluded.indexOf(key) >= 0) continue;if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;target[key] = source[key];}}return target;}function _objectWithoutPropertiesLoose(source, excluded) {if (source == null) return {};var target = {};var sourceKeys = Object.keys(source);var key, i;for (i = 0; i < sourceKeys.length; i++) {key = sourceKeys[i];if (excluded.indexOf(key) >= 0) continue;target[key] = source[key];}return target;}
 // 时间戳转
 function timeFormat(nS) {
@@ -1769,7 +1769,18 @@ function timeFormat1(nS, type) {
 
   return "".concat(M, "/").concat(D, " ").concat(H, ":").concat(minute); // mm-dd hh:minute
 }
-
+//两个时间相差天数 兼容firefox chrome
+function dateDifference(sDate1, sDate2) {//sDate1和sDate2是2006-12-18格式 
+  var dateSpan,
+  tempDate,
+  iDays;
+  sDate1 = Date.parse(sDate1);
+  sDate2 = Date.parse(sDate2);
+  dateSpan = sDate2 - sDate1;
+  dateSpan = Math.abs(dateSpan);
+  iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
+  return iDays;
+};
 // -----------------------封装uni.request请求--------------------
 function myRequest(url, config) {
   return new Promise(function (resolve, reject) {var _config = _objectSpread({},
@@ -1938,9 +1949,9 @@ function myLogin() {
 /***/ }),
 
 /***/ 124:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/tasks/task_1.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/tasks/task_1.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1949,9 +1960,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4
 /***/ }),
 
 /***/ 125:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/tasks/task_2.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/tasks/task_2.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1960,9 +1971,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4
 /***/ }),
 
 /***/ 126:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/tasks/task_3.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/tasks/task_3.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1971,9 +1982,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4
 /***/ }),
 
 /***/ 127:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/tasks/task_4.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/tasks/task_4.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -2041,9 +2052,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 142:
-/*!***********************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/add.png ***!
-  \***********************************************/
+/*!*******************************************!*\
+  !*** E:/uniapp/ykt/static/images/add.png ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -2052,9 +2063,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAvCAYAAABz
 /***/ }),
 
 /***/ 143:
-/*!*************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/error.png ***!
-  \*************************************************/
+/*!*********************************************!*\
+  !*** E:/uniapp/ykt/static/images/error.png ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8971,9 +8982,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 20:
-/*!****************************************!*\
-  !*** E:/VUE/gmtforkids/store/index.js ***!
-  \****************************************/
+/*!************************************!*\
+  !*** E:/uniapp/ykt/store/index.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9022,9 +9033,9 @@ store;exports.default = _default;
 /***/ }),
 
 /***/ 208:
-/*!*************************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/after_lottery_btn.png ***!
-  \*************************************************************/
+/*!*********************************************************!*\
+  !*** E:/uniapp/ykt/static/images/after_lottery_btn.png ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9033,9 +9044,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd8AAABkCAMAAADw
 /***/ }),
 
 /***/ 209:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/lottery_btn.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/lottery_btn.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10157,9 +10168,9 @@ var index = {
 /***/ }),
 
 /***/ 257:
-/*!**************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/bg_img.png ***!
-  \**************************************************/
+/*!**********************************************!*\
+  !*** E:/uniapp/ykt/static/images/bg_img.png ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10168,9 +10179,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAEuCAMAAADm
 /***/ }),
 
 /***/ 258:
-/*!****************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/bg_img_s.png ***!
-  \****************************************************/
+/*!************************************************!*\
+  !*** E:/uniapp/ykt/static/images/bg_img_s.png ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10179,9 +10190,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAEJCAMAAAD8
 /***/ }),
 
 /***/ 268:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/components/uni-icons/icons.js ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/components/uni-icons/icons.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10321,9 +10332,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 276:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/components/QuShe-picker/app.js ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/components/QuShe-picker/app.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10405,9 +10416,9 @@ _app;exports.default = _default;
 /***/ }),
 
 /***/ 277:
-/*!***********************************************************************!*\
-  !*** E:/VUE/gmtforkids/components/QuShe-picker/city-data/province.js ***!
-  \***********************************************************************/
+/*!*******************************************************************!*\
+  !*** E:/uniapp/ykt/components/QuShe-picker/city-data/province.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10555,9 +10566,9 @@ provinceData;exports.default = _default;
 /***/ }),
 
 /***/ 278:
-/*!*******************************************************************!*\
-  !*** E:/VUE/gmtforkids/components/QuShe-picker/city-data/city.js ***!
-  \*******************************************************************/
+/*!***************************************************************!*\
+  !*** E:/uniapp/ykt/components/QuShe-picker/city-data/city.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12069,9 +12080,9 @@ cityData;exports.default = _default;
 /***/ }),
 
 /***/ 279:
-/*!*******************************************************************!*\
-  !*** E:/VUE/gmtforkids/components/QuShe-picker/city-data/area.js ***!
-  \*******************************************************************/
+/*!***************************************************************!*\
+  !*** E:/uniapp/ykt/components/QuShe-picker/city-data/area.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24625,9 +24636,9 @@ areaData;exports.default = _default;
 /***/ }),
 
 /***/ 28:
-/*!*******************************************!*\
-  !*** E:/VUE/gmtforkids/common/amap-wx.js ***!
-  \*******************************************/
+/*!***************************************!*\
+  !*** E:/uniapp/ykt/common/amap-wx.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -24636,9 +24647,9 @@ function AMapWX(a) {this.key = a.key, this.requestConfig = { key: a.key, s: "rsx
 /***/ }),
 
 /***/ 29:
-/*!*********************************************************!*\
-  !*** E:/VUE/gmtforkids/components/u-charts/u-charts.js ***!
-  \*********************************************************/
+/*!*****************************************************!*\
+  !*** E:/uniapp/ykt/components/u-charts/u-charts.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29732,9 +29743,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 30:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/menus/menu1.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/menus/menu1.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29743,9 +29754,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADG
 /***/ }),
 
 /***/ 31:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/menus/menu2.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/menus/menu2.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29754,9 +29765,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADG
 /***/ }),
 
 /***/ 32:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/menus/menu3.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/menus/menu3.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29765,9 +29776,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADG
 /***/ }),
 
 /***/ 33:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/menus/menu4.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/menus/menu4.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29776,9 +29787,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADG
 /***/ }),
 
 /***/ 34:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/menus/menu5.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/menus/menu5.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29787,9 +29798,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADG
 /***/ }),
 
 /***/ 35:
-/*!*******************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/menus/menu6.png ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** E:/uniapp/ykt/static/images/menus/menu6.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29798,9 +29809,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAYAAADG
 /***/ }),
 
 /***/ 36:
-/*!*************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/l_boy.png ***!
-  \*************************************************/
+/*!*********************************************!*\
+  !*** E:/uniapp/ykt/static/images/l_boy.png ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29809,9 +29820,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABSCAYAAADH
 /***/ }),
 
 /***/ 37:
-/*!**************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/l_gril.png ***!
-  \**************************************************/
+/*!**********************************************!*\
+  !*** E:/uniapp/ykt/static/images/l_gril.png ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -29820,9 +29831,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABSCAYAAADH
 /***/ }),
 
 /***/ 4:
-/*!************************************!*\
-  !*** E:/VUE/gmtforkids/pages.json ***!
-  \************************************/
+/*!********************************!*\
+  !*** E:/uniapp/ykt/pages.json ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30828,9 +30839,9 @@ module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@d
 /***/ }),
 
 /***/ 62:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/users/user_1.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/users/user_1.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30839,9 +30850,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABx
 /***/ }),
 
 /***/ 63:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/users/user_2.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/users/user_2.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30850,9 +30861,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABx
 /***/ }),
 
 /***/ 64:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/users/user_3.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/users/user_3.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30861,9 +30872,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABx
 /***/ }),
 
 /***/ 65:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/users/user_4.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/users/user_4.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30872,9 +30883,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABx
 /***/ }),
 
 /***/ 66:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/users/user_5.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/users/user_5.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30883,9 +30894,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABx
 /***/ }),
 
 /***/ 67:
-/*!********************************************************!*\
-  !*** E:/VUE/gmtforkids/static/images/users/user_6.png ***!
-  \********************************************************/
+/*!****************************************************!*\
+  !*** E:/uniapp/ykt/static/images/users/user_6.png ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -30894,9 +30905,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABx
 /***/ }),
 
 /***/ 7:
-/*!****************************************************!*\
-  !*** E:/VUE/gmtforkids/pages.json?{"type":"stat"} ***!
-  \****************************************************/
+/*!************************************************!*\
+  !*** E:/uniapp/ykt/pages.json?{"type":"stat"} ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30906,9 +30917,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 8:
-/*!*****************************************************!*\
-  !*** E:/VUE/gmtforkids/pages.json?{"type":"style"} ***!
-  \*****************************************************/
+/*!*************************************************!*\
+  !*** E:/uniapp/ykt/pages.json?{"type":"style"} ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

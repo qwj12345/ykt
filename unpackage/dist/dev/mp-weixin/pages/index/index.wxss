@@ -61,10 +61,9 @@ page {
   height: 520rpx;
   position: relative;
 }
-.page-top .show-top swiper {
+.page-top .show-top .canvas-content {
+  position: relative;
   height: 380rpx;
-}
-.page-top .show-top swiper swiper-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -72,7 +71,7 @@ page {
   -webkit-justify-content: center;
           justify-content: center;
 }
-.page-top .show-top swiper swiper-item .title {
+.page-top .show-top .canvas-content .title {
   position: absolute;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
@@ -82,7 +81,7 @@ page {
   margin-top: 16rpx;
   letter-spacing: 2rpx;
 }
-.page-top .show-top swiper swiper-item .product-icon {
+.page-top .show-top .canvas-content .product-icon {
   position: absolute;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
@@ -91,23 +90,23 @@ page {
   height: 64rpx;
   top: 100rpx;
 }
-.page-top .show-top swiper swiper-item .charts3 {
+.page-top .show-top .canvas-content .charts3 {
   margin-top: 50rpx;
   width: 316rpx;
   /*样式的width和height一定要与定义的cWidth和cHeight相对应*/
   height: 316rpx;
 }
-.page-top .show-top swiper swiper-item .cricle-process {
+.page-top .show-top .canvas-content .cricle-process {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -20%);
-          transform: translate(-50%, -20%);
+  -webkit-transform: translate(-50%, -30%);
+          transform: translate(-50%, -30%);
   color: #fff;
   text-align: center;
   font-size: 22rpx;
 }
-.page-top .show-top swiper swiper-item .cricle-process .cricle-process-kg {
+.page-top .show-top .canvas-content .cricle-process .cricle-process-kg {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -119,7 +118,7 @@ page {
   -webkit-transform: scaleY(1.2);
           transform: scaleY(1.2);
 }
-.page-top .show-top swiper swiper-item .cricle-process .cricle-process-kg view {
+.page-top .show-top .canvas-content .cricle-process .cricle-process-kg view {
   font-size: 24rpx;
   -webkit-align-self: flex-end;
           align-self: flex-end;
@@ -233,6 +232,7 @@ page {
 }
 .page-top .show-top .choose-child .choose-modal .item .change-child {
   width: 24rpx;
+  height: auto;
 }
 .page-top .show-top .choose-child .choose-modal .item:last-child {
   margin-bottom: 0;

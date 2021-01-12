@@ -164,19 +164,7 @@
 					}
 				})
 			},
-			// 获取科目  
-			getClassCard(){
-				let data = {
-					showSystemDefault :true
-				}
-				this.myRequest("gmt/api/gmtChild/gmtClassCard/selectData",{data}).then(res => {
-					if(res.data.code===0){
-						// 不能直接用this.customSet2.itemArray[0] = res.data.data;修改
-						res.data.data.push({name:"无",id:-1})
-						this.$set(this.customSet2,"itemArray",[res.data.data])//获取系统有什么科目
-					}
-				})
-			},
+	
 			// 获取周几这个孩子已经设置的科目
 			getWeekClass(){
 				let data = {
@@ -220,7 +208,6 @@
 			}
 		},
 		onShow() {
-			this.getClassCard();
 			this.getWeekClass();
 		},
 		onLoad(query){

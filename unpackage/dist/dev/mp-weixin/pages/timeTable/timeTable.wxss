@@ -105,7 +105,7 @@ page {
   height: 70rpx;
   line-height: 70rpx;
 }
-#time-table .time-table .table {
+#time-table .time-table .table-column {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -114,7 +114,7 @@ page {
   -webkit-flex-direction: column;
           flex-direction: column;
 }
-#time-table .time-table .table .table-item {
+#time-table .time-table .table-column .table-item {
   border-right: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
   text-align: center;
@@ -124,7 +124,7 @@ page {
   box-sizing: border-box;
   background: #fff;
 }
-#time-table .time-table .table .table-item:first-child {
+#time-table .time-table .table-column .table-item:first-child {
   height: 70rpx;
   line-height: 70rpx;
   background-color: #edeff4;

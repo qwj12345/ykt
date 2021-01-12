@@ -193,7 +193,7 @@
 			
 			// 保存
 			saveChild(){
-				if(this.grade!=="" &&this.name!==""&&this.grade!==""&&this.school!==""&&this.dateText!=="请选择出生日期"){
+				if(this.grade!=="" &&this.name!==""&&this.grade!==""&&this.school!==""&&this.dateText!=="请选择出生日期"&&this.dateText3!=="请选择结束日期"){
 					this.$refs.loading.showLoading(); // 显示
 					let data = {
 					  "openId":uni.getStorageSync('openId'),
@@ -203,10 +203,11 @@
 					  "sex": this.sex,
 					  "userBirthday": this.dateText,
 					  "startTime":this.dateText2,
-					  "endtTime":this.dateText3,
+					  "endTime":this.dateText3,
 					}
 					// 如果有id的话就是修改
 					this.id ? data.id=this.id :data = data;
+					console.log(12312,data)
 					this.myRequest("student/addStudent",{data,contentType:"application/json"}).then(res =>{
 						console.log(res)
 						this.$refs.loading.hideLoading(); // 显示
@@ -239,8 +240,8 @@
 				let data = {
 					id:this.id
 				}
-				this.myRequest("gmt/api/gmtChild/child/gmtChildDetail",{data}).then(res =>{ 
-					if(res.data.code===0){
+				this.myRequest("student/findStudentDetail",{data,method:'GET'}).then(res =>{ 
+					if(res.data.code===200){
 						let result = res.data.data;
 						this.grade = result.grade;
 						this.classText = this.customSet.itemArray[0][result.grade-1].name;
@@ -248,7 +249,9 @@
 						this.name = result.name;
 					
 						this.dateText = result.userBirthday;
-						this.sex = result.sex;
+						this.dateText2 = result.startTime;
+						this.dateText3 = result.endTime;
+						this.sex = parseInt(result.sex);
 						this.school = result.school;
 					}else{
 						this.toastType = "error";

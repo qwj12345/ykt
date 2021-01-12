@@ -7,12 +7,12 @@
 				<view class="number-item" v-for="(item,key) in numberList" :key="key">{{item}}</view>
 			</view>
 			<!-- 表格内容 -->
-			<view class="table" v-for="(item,key) in list" :key="key">
+			<view class="table-column" v-for="(item,key) in list" :key="key">
 				<view class="table-item">{{weeks[key]}}</view>
 				<!-- :class="key===4&&index===7?'borderRadius30 table-item':'table-item'"为了右下角最后一个有边框显示 -->
 				<view  v-for="(value,index) in item" :key="index" class="table-item" :class="{'borderRN':key===4,'borderBN':index===7}">
 					<!-- 需要把undefined转为空显示 -->
-					{{timetable[(key+1)+"_"+(index+1)].classCardName?timetable[(key+1)+"_"+(index+1)].classCardName:""}}
+					{{timetable[(key+1+'')+(index+1)].classCardName?timetable[(key+1+'')+(index+1)].classCardName:""}}
 				</view>
 			</view>
 		</view>
@@ -45,10 +45,10 @@
 		},
 		onShow() {
 			let data = {
-				childId :this.id
+				studentId :this.id
 			}
-			myRequest('gmt/api/gmtChild/gmtChildClassCard/getGroupInfo',{data}).then(res => {
-				if(res.data.code===0){
+			myRequest('table/findTableByStudent',{data,method:'GET'}).then(res => {
+				if(res.data.code===200){
 					this.timetable = res.data.data;
 					console.log(this.timetable)
 				}else{
@@ -112,7 +112,7 @@
 					line-height: 70upx;
 				}
 			}
-			.table{
+			.table-column{
 				display: flex;
 				flex-direction: column;
 				.table-item{
