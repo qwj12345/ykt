@@ -207,9 +207,7 @@
 				})
 			}
 		},
-		onShow() {
-			this.getWeekClass();
-		},
+
 		onLoad(query){
 			this.id  = query.id;
 			this.getWeekClass();

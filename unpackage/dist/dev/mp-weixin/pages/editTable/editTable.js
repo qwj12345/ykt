@@ -465,9 +465,7 @@ var _common = __webpack_require__(/*! ../../common/common.js */ 12);var QSpicker
       });
     } },
 
-  onShow: function onShow() {
-    this.getWeekClass();
-  },
+
   onLoad: function onLoad(query) {
     this.id = query.id;
     this.getWeekClass();
