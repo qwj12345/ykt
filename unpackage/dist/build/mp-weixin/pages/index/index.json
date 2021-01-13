@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "盐学记",
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#F49D1A",
+  "navigationBarBackgroundColor": "#6faafc",
   "usingComponents": {
     "wyb-loading": "/components/wyb-loading/wyb-loading",
     "my-toast": "/components/my-toast/my-toast",

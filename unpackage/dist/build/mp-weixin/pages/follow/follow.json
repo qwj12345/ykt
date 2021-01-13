@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "添加关注",
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#F6991B",
+  "navigationBarBackgroundColor": "#6faafc",
   "usingComponents": {
     "e-modal": "/components/e-modal/e-modal",
     "my-toast": "/components/my-toast/my-toast",

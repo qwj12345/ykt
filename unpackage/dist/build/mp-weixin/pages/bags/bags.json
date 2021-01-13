@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "我的书包",
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#F49D1A",
+  "navigationBarBackgroundColor": "#6faafc",
   "usingComponents": {
     "page-top": "/components/page-top/page-top",
     "e-modal": "/components/e-modal/e-modal",
