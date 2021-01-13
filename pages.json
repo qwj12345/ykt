@@ -2,7 +2,7 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "GMTforkids会员中心",
+			"navigationBarTitleText": "盐学记",
 			"navigationBarTextStyle": "white",
 			"navigationBarBackgroundColor": "#F49D1A" 
 		
@@ -11,7 +11,7 @@
         ,{
             "path" : "pages/welfare/welfare",
             "style": {
-            	"navigationBarTitleText": "GMTforkids会员中心",
+            	"navigationBarTitleText": "盐学记",
             	"navigationBarTextStyle": "white",
             	"navigationBarBackgroundColor": "#F49D1A"
             	
@@ -24,7 +24,7 @@
         ,{
             "path" : "pages/mine/mine",
             "style": {
-            	"navigationBarTitleText": "GMTforkids会员中心",
+            	"navigationBarTitleText": "盐学记",
             	"navigationBarTextStyle": "white",
             	"navigationBarBackgroundColor": "#F49D1A"
             
@@ -66,7 +66,7 @@
         ,{
             "path" : "pages/integral/integral",
             "style": {
-            	"navigationBarTitleText": "GMTforkids会员中心",
+            	"navigationBarTitleText": "盐学记",
             	"navigationBarTextStyle": "white",
             	"navigationBarBackgroundColor": "#F49D1A"
             	
@@ -143,7 +143,7 @@
 
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "GMTforkids会员中心",
+		"navigationBarTitleText": "盐学记",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#FFFFFF"
 	},
@@ -158,12 +158,6 @@
 				"selectedIconPath": "static/images/tabbars/tabbar1_active.png",
 				"text": "首页"
 			},
-			{
-					"pagePath": "pages/welfare/welfare",
-					"iconPath": "static/images/tabbars/tabbar2.png",
-					"selectedIconPath": "static/images/tabbars/tabbar2_active.png",
-					"text": "会员福利"
-				},
 			{
 					"pagePath": "pages/children/children",
 					"iconPath": "static/images/tabbars/tabbar3.png",

@@ -12,7 +12,7 @@
 				<!-- :class="key===4&&index===7?'borderRadius30 table-item':'table-item'"为了右下角最后一个有边框显示 -->
 				<view  v-for="(value,index) in item" :key="index" class="table-item" :class="{'borderRN':key===4,'borderBN':index===7}">
 					<!-- 需要把undefined转为空显示 -->
-					{{timetable[(key+1+'')+(index+1)].classCardName?timetable[(key+1+'')+(index+1)].classCardName:""}}
+					{{timetable[(key+1+'')+(index+1)]?timetable[(key+1+'')+(index+1)]:""}}
 				</view>
 			</view>
 		</view>
@@ -50,7 +50,6 @@
 			myRequest('table/findTableByStudent',{data,method:'GET'}).then(res => {
 				if(res.data.code===200){
 					this.timetable = res.data.data;
-					console.log(this.timetable)
 				}else{
 					this.toastType = "error";
 					this.toastTitle = "请求错误";

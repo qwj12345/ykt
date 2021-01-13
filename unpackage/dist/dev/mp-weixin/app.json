@@ -27,7 +27,7 @@
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "GMTforkids会员中心",
+    "navigationBarTitleText": "盐学记",
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF"
   },
@@ -42,12 +42,6 @@
         "iconPath": "static/images/tabbars/tabbar1.png",
         "selectedIconPath": "static/images/tabbars/tabbar1_active.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/welfare/welfare",
-        "iconPath": "static/images/tabbars/tabbar2.png",
-        "selectedIconPath": "static/images/tabbars/tabbar2_active.png",
-        "text": "会员福利"
       },
       {
         "pagePath": "pages/children/children",
@@ -71,6 +65,5 @@
   "uniStatistics": {
     "enable": true
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap53.json"
+  "usingComponents": {}
 }

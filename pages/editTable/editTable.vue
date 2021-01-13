@@ -8,13 +8,13 @@
 		<view class="cut-line"></view>
 		<view class="edit-item display-between-center" v-for="(item,key) in 4" :key="key" @click="showSelClass(key)">
 			<view class="title">{{classNumList[key]}}</view>
-			<view class="sel-input">{{classList[key].classCardName}}</view>
+			<view class="sel-input">{{weekClass[weekNum-1][key]}}</view>
 		</view>
 		<!-- 下午 -->
 		<view class="cut-line2"></view>
 		<view class="edit-item display-between-center" v-for="(item,key) in 4" :key="key" @click="showSelClass(key+4)">
 			<view class="title">{{classNumList[key+4]}}</view>
-			<view class="sel-input">{{classList[key+4].classCardName}}</view>
+			<view class="sel-input">{{weekClass[weekNum-1][key+4]}}</view>
 		</view>
 		<!-- 按钮 -->
 		<view class="fix-btn" >
@@ -38,6 +38,7 @@
 	export default {
 		data() {
 			return {
+				weekClass:[[],[],[],[],[]],
 				toastTitle:"出错啦",
 				toastType:"error",
 				id:undefined,
@@ -45,15 +46,7 @@
 				weekNum:1,//星期几 （传给后台）
 				classNum:0,//第几节课
 				classNumList:["第一节","第二节","第三节","第四节","第五节","第六节","第七节","第八节",],
-				classList:[{classIndex:1,classCardId:-1,classCardName:""},
-							{classIndex:2,classCardId:-1,classCardName:""},
-							{classIndex:3,classCardId:-1,classCardName:""},
-							{classIndex:4,classCardId:-1,classCardName:""},
-							{classIndex:5,classCardId:-1,classCardName:""},
-							{classIndex:6,classCardId:-1,classCardName:""},
-							{classIndex:7,classCardId:-1,classCardName:""},
-							{classIndex:8,classCardId:-1,classCardName:""},
-							],
+				classList:[],
 				buttonSet:{
 					confirmColor:"rgb(244,157,26)"
 				},
@@ -126,11 +119,13 @@
 			confirmDay(e){
 				this.week = e.data[0].name;
 				this.weekNum = e.data[0].value;
-				this.getWeekClass();
 			},
 			// 选择什么课
 			confirmClass(e){
-				this.$set(this.classList,this.classNum,{classCardName:e.data[0].name,classCardId:e.data[0].id,classIndex:this.classNum+1})//需要课程id和classIndex第几节课
+				let arr = this.weekClass[this.weekNum-1];
+				arr[this.classNum] = e.data[0].name;
+				this.$set(this.weekClass,this.weekNum-1,arr);//修改整个课表
+				// this.$set(this.classList,this.classNum,{classCardName:e.data[0].name,classCardId:e.data[0].id,classIndex:this.classNum+1})//需要课程id和classIndex第几节课
 				// this.classList[this.classNum] = {classCardName:e.data[0].name,classCardId:e.data[0].value,classIndex:this.classNum+1}
 			},
 			// 去编辑科目重量
@@ -141,63 +136,51 @@
 			},
 			// 保存
 			saveClass(){
-				let classList = this.classList.filter(item => item.classCardName !== "无"&&item.classCardName !== "")
-				console.log(classList)
-				let data = classList
-				let otherParams = `&childId=${this.id}&weekIndex=${this.weekNum}`//需要拼接在地址后面的参数
-				
-				this.$refs.loading.showLoading() // 显示
-				myRequest2("gmt/api/gmtChild/gmtChildClassCard/saveOrUpdate",{data:data,contentType:"application/json",otherParams:otherParams}).then(res => {
-					this.$refs.loading.hideLoading() // 显示
-					if(res.data.code===0){
-						this.toastType = "ring";	
-						this.toastTitle = "保存成功";
-						this.$refs.toast.showLoading() // 显示
-						getApp().globalData.subjectFlag = 1;//做个标记 让首页课程表刷新
-						setTimeout(res => {
-							uni.navigateBack();
-						},1500)
-					}else{
-						this.toastType = "error";
-						this.toastTitle = "请求错误";
-						this.$refs.toast.showLoading() // 显示
-					}
+				let timetable = {}
+				this.weekClass.forEach((item,key) => {
+					item.forEach((value,index) => {
+						timetable[(key+1)+''+(index+1)] = value;
+					})
 				})
+				// let classList = this.classList.filter(item => item.classCardName !== "无"&&item.classCardName !== "")
+				console.log(timetable)
+				let data = {
+					studentId:this.id,
+					timetable:JSON.stringify(timetable)
+				}
+				this.$refs.loading.showLoading() // 显示
+				this.myRequest('table/updateTable',{data}).then(res => {
+						this.$refs.loading.hideLoading() // 显示
+						if(res.data.code===200){
+							this.toastType = "ring";	
+							this.toastTitle = "保存成功";
+							this.$refs.toast.showLoading() // 显示
+							getApp().globalData.subjectFlag = 1;//做个标记 让首页课程表刷新
+							setTimeout(res => {
+								uni.navigateBack();
+							},1500)
+						}else{
+							this.toastType = "error";
+							this.toastTitle = "请求错误";
+							this.$refs.toast.showLoading() // 显示
+						}
+				})
+
 			},
 	
-			// 获取周几这个孩子已经设置的科目
-			getWeekClass(){
+			getClass(){
 				let data = {
-					childId :this.id,
-					weekIndex:this.weekNum
+					studentId :this.id
 				}
-				//
-				 this.classList = [{classIndex:1,classCardId:-1,classCardName:""},
-							{classIndex:2,classCardId:-1,classCardName:""},
-							{classIndex:3,classCardId:-1,classCardName:""},
-							{classIndex:4,classCardId:-1,classCardName:""},
-							{classIndex:5,classCardId:-1,classCardName:""},
-							{classIndex:6,classCardId:-1,classCardName:""},
-							{classIndex:7,classCardId:-1,classCardName:""},
-							{classIndex:8,classCardId:-1,classCardName:""},
-							];
-				// 
-				this.$refs.loading.showLoading() // 显示
-				this.myRequest('gmt/api/gmtChild/gmtChildClassCard/getGroupInfo',{data}).then(res => {
-					this.$refs.loading.hideLoading() // 
-					if(res.data.code===0){
-						let classes = res.data.data;
-						this.classList.forEach((item,key) => {
-							for(var i in classes) { //遍历获取到的已存科目
-								if(item.classIndex === classes[i].classIndex){  //获取第几节课的内容
-									if(!classes[i].classCardName){     //防止classname为null
-										classes[i].classCardName="";
-									} 
-									this.$set(this.classList,key,classes[i])//需要课程id和classIndex第几节课
-								}
-							}
-						})
- 
+				this.myRequest('table/findTableByStudent',{data,method:'GET'}).then(res => {
+					if(res.data.code===200){
+						let timetable = res.data.data;
+						for(let key in timetable){
+							let num = parseInt(key.slice(0,1));
+							this.weekClass[num-1].push(timetable[key])
+						}
+						console.log(this.weekClass)
+						
 					}else{
 						this.toastType = "error";
 						this.toastTitle = "请求错误";
@@ -205,12 +188,14 @@
 					}
 					
 				})
-			}
+			},
+	
 		},
 
 		onLoad(query){
+			console.log(query)
 			this.id  = query.id;
-			this.getWeekClass();
+			this.getClass();
 			
 		}
 	}

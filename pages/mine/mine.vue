@@ -15,6 +15,10 @@
 			</view>
 		  </view>
 		</view>
+		<!--  -->
+	<!-- 	<view class="footer-banner">
+			<img src="https://level8cases.oss-cn-hangzhou.aliyuncs.com/640-47d004cf-f8c2-4e32-bfca-75333f2f2610.gif" />
+		</view> -->
 		<!-- 手机号授权 -->
 		<phone-modal ref="phone"></phone-modal>
 		<!-- 小程序授权 -->
@@ -28,11 +32,11 @@
 			return {
 				operates:[
 				  {title:'我的信息',url:'/pages/myInfo/myInfo',img:require('../../static/images/users/user_1.png')},
-				  {title:'儿童信息管理',url:'/pages/children/children',img:require('../../static/images/users/user_2.png')},
-				  {title:'我的书包',url:'/pages/bags/bags',img:require('../../static/images/users/user_3.png')},
-				  {title:'兑换记录',url:'/pages/record/record',img:require('../../static/images/users/user_4.png')},
-				  {title:'会员手册',url:'/pages/rules/rules?type=HY',img:require('../../static/images/users/user_5.png')},
-				  {title:'隐私条款',url:'/pages/rules/rules?type=YS',img:require('../../static/images/users/user_6.png')},
+				  {title:'学生信息管理',url:'/pages/children/children',img:require('../../static/images/users/user_2.png')},
+				  {title:'共同关注',url:'',img:require('../../static/images/users/user_3.png')},
+				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_4.png')},
+				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_5.png')},
+				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_6.png')},
 				 ],
 			};
 		},
@@ -56,9 +60,12 @@
 							url
 						})
 					}else{
-						uni.navigateTo({
-							url
-						})
+						if(url !== ''){
+							uni.navigateTo({
+								url
+							})
+						}
+						
 					}
 				}else{
 					this.showSQ();
@@ -73,6 +80,13 @@
 @import url("../../common/common.less");
 
 #mine{
+	.footer-banner{
+		width: 688upx;
+		height: 326upx;
+		margin: 60upx auto;
+		border-radius: 26upx;
+		overflow: hidden;
+	}	
 	.user-operate{
 	    padding: 40upx 30upx;
 	    width: 682upx;

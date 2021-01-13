@@ -19,7 +19,7 @@
 			  </view>
 			</view>
 			<!-- 积分 -->
-			<view class="integral" @click="goDetail">
+<!-- 			<view class="integral" @click="goDetail">
 			  <view class="integral-left">
 				<view class="fly-logo">
 				  <img src="/static/images/money_icon.png"/>
@@ -31,7 +31,7 @@
 			  <view class="integral-right">
 				{{integral}}
 			  </view>
-			</view>
+			</view> -->
 		  </view>
 		</view>
 		

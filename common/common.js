@@ -112,6 +112,7 @@ export function loginUser(){
 						iv:user.iv
 					},
 					success:reqRes => {
+						
 						resolve(reqRes)
 						if(reqRes.data.code === 200){
 							store.commit("changeLogin",true);
@@ -119,6 +120,10 @@ export function loginUser(){
 						}else{
 							store.commit("changeLogin",false);
 						}
+					},
+					fail:reqRes => {
+						reject(reqRes)
+						console.log(121212,reqRes)
 					}
 				  })
 			   },fail(err){ //用户未授权

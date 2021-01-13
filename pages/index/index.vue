@@ -48,7 +48,7 @@
 							<view class="date" >{{nowDay.month}}</view>
 						</view>
 					</view>
-					<view class="right display-between-center">
+					<view class="right display-between-center" @click="getScope">
 						<view class="weather-info">
 							今天{{weather}} , 温度{{templow}}°C ~ {{temphigh}}°C
 						</view>
@@ -73,7 +73,7 @@
 					</view>
 				</view>
 				<!-- 编辑按钮 -->
-				<view class="edit-btn"  @click="goPage('/pages/editTable/editTable?id='+showStudent.id)">
+				<view class="edit-btn"  @click="goPage('/pages/editTable/editTable?id='+showStudent._id)">
 					<image src="../../static/images/edit.png" style="height: 100%;"></image>
 				</view>
 			</view>
@@ -81,10 +81,13 @@
 			<view v-else class="hide-class">
 				<image src="../../static/images/no_class.png" ></image>
 				<view  class="text">您还没有添加当天课程哦~</view>
-				<view  class="btn" @click="goPage('/pages/editTable/editTable?id='+showStudent.id)">去添加</view>
+				<view  class="btn" @click="goPage('/pages/editTable/editTable?id='+showStudent._id)">去添加</view>
 			</view>
 		</view>
-		
+		<!--  -->
+		<view class="footer-banner">
+			<img src="https://level8cases.oss-cn-hangzhou.aliyuncs.com/640-47d004cf-f8c2-4e32-bfca-75333f2f2610.gif" />
+		</view>
 		<!-- 菜单栏 -->
 		<view class="home-menu display-between-center">
 			<view class="menu-item" v-for="(item,key) in menus" :key="key" @click="goPage(item.url)">
@@ -118,12 +121,9 @@
 				toastType:"ring",
 				showChoose:false,
 				menus:[
-						{icon:require("../../static/images/menus/menu1.png"),name:"书包登记",url:"/pages/register/register"},
-						{icon:require("../../static/images/menus/menu2.png"),name:"幸运抽奖",url:"/pages/lottery/lottery"},
-						{icon:require("../../static/images/menus/menu3.png"),name:"赚奖学金",url:"/pages/integral/integral"},
-						{icon:require("../../static/images/menus/menu4.png"),name:"我的书包",url:"/pages/bags/bags"},
-						{icon:require("../../static/images/menus/menu5.png"),name:"最新消息",url:"/pages/message/message?type=0"},
-						{icon:require("../../static/images/menus/menu6.png"),name:"添加关注",url:"/pages/follow/follow"},
+						// {icon:require("../../static/images/menus/menu4.png"),name:"我的书包",url:""},
+						// {icon:require("../../static/images/menus/menu5.png"),name:"最新消息",url:""},
+						// {icon:require("../../static/images/menus/menu6.png"),name:"添加关注",url:""},
 					],
 				swiperIndex:0,
 				cWidth3:'',//圆弧进度图
@@ -197,15 +197,25 @@
 				this.showChoose ? this.showChoose = false : this.showChoose = true;
 			},
 
-			changeSwiper(e){
-				this.swiperIndex = e.mp.detail.current;
-			},
 			// 选择孩子
 			chooseChild(item){
 				if(this.showStudent.id !== item.id){
 					this.showStudentId = item.id;
 					this.toggleChoose();
 					this.getStudentDetail();
+				}
+			},
+			// 重新获取地理位置权限
+			getScope(){
+				let that = this;
+				if(this.weather === '--'){
+					uni.openSetting({
+						success: (res) => { 
+							if(res.authSetting["scope.userLocation"]){
+								that.getWeather("fd775be10a2b2f19a552105a2747c07f"); 
+							}
+						}
+					})
 				}
 			},
 			// 获取孩子列表
@@ -229,7 +239,7 @@
 					this.$refs.loading.hideLoading() //  101
 					if(res.data.code===200){
 						this.showStudent = res.data.data;
-						console.log(11,timeFormat1(new Date(),3))
+						
 						let dataL = dateDifference(this.showStudent.startTime,timeFormat1(new Date(),3)) / dateDifference(this.showStudent.startTime,this.showStudent.endTime);
 						this.canvasText = dataL>=1?'100':Math.round(dataL*100);
 						let chartData = {
@@ -260,6 +270,7 @@
 				myAmapFun.getRegeo({
 				      success: function(res){
 						 let location = res[0].regeocodeData.addressComponent.streetNumber.location.split(",").reverse().join(",");
+						 
 						uni.request({
 						    url:`https://jisutqybmf.market.alicloudapi.com/weather/query?city='${res[0].regeocodeData.addressComponent.district}'&location="${location}"`,
 						    method: "GET",
@@ -268,7 +279,7 @@
 								"content-type":"application/x-www-form-urlencoded; charset=UTF-8"
 						    },
 						    success(res){ 
-						        console.log(res.data.result)
+						        
 								_self.weather = res.data.result.weather;
 								_self.temphigh = res.data.result.temphigh;
 								_self.templow = res.data.result.templow;
@@ -279,7 +290,6 @@
 				      },
 				      fail: function(info){
 				        //失败回调
-				        console.log(info)
 				      }
 				    })
 				// myAmapFun.getWeather({
@@ -321,40 +331,52 @@
 			},
 			// 获取课表
 			getSubject(){
-		// 		if(this.showStudent.id){
-		// 			let data = {
-		// 				childId :this.showStudent.id,
-		// 				weekIndex:this.nowDay.week===0? 7 : this.nowDay.week
-		// 			}
-		// 			// 
-			
-		// 			this.myRequest('gmt/api/gmtChild/gmtChildClassCard/getGroupInfo',{data}).then(res => {
-		
-		// 				if(res.data.code===0){
-		// 					let subject = res.data.data;
-		// 					// 获取上午课表
-		// 					this.amSubjects = [];
-		// 					this.pmSubjects = [];
-		// 					for(let i=1;i<=4;i++){
-		// 						if(subject[this.nowDay.week+'_'+i]){
-		// 							this.amSubjects.push(subject[this.nowDay.week+'_'+i].classCardName);
-		// 						}
-		// 					}
-		// 					// 获取下午课表
-		// 					 for(let i=5;i<=8;i++){
-		// 						if(subject[this.nowDay.week+'_'+i]){
-		// 							this.pmSubjects.push(subject[this.nowDay.week+'_'+i].classCardName);
-		// 						}
-		// 					 }
-							 
-		// 				}else{
-		// 					this.toastType = "error";
-		// 					this.toastTitle = "课表请求错误";
-		// 					this.$refs.toast.showLoading() // 显示
-		// 				}
+				console.log(222,this.showStudent)
+				if(this.showStudent._id){
+					// this.nowDay.week===0? 7 : this.nowDay.week
+					let dayIndex = parseInt(this.nowDay.week==0? 7 : this.nowDay.week);
+					let data = {
+						studentId :this.showStudent._id
+					}
+					this.myRequest('table/findTableByStudent',{data,method:'GET'}).then(res => {
+						if(res.data.code===200){
+							let subject = [];
+							this.amSubjects = [];
+							this.pmSubjects = [];
+							let timetable = res.data.data;
+							for(let key in timetable){
+								let num = parseInt(key.slice(0,1));
+								console.log(num,dayIndex)
+								if(num === dayIndex && dayIndex < 6){//筛选出当天的课表
+									let index = parseInt(key.slice(1,2));
+									if(index<=4 && timetable[key]){   //上午的课表
+										this.amSubjects.push(timetable[key]);
+									}else if(index>4 && timetable[key]){
+										this.pmSubjects.push(timetable[key]);
+									}
+								}
+							}
+							// // 获取上午课表
+							// for(let i=1;i<=4;i++){
+							// 	if(subject[this.nowDay.week+''+i]){
+							// 		this.amSubjects.push(subject[this.nowDay.week+''+i]);
+							// 	}
+							// }
+							// // 获取下午课表
+							//  for(let i=5;i<=8;i++){
+							// 	if(subject[this.nowDay.week+'_'+i]){
+							// 		this.pmSubjects.push(subject[this.nowDay.week+'_'+i]);
+							// 	}
+							//  }
+						}else{
+							this.toastType = "error";
+							this.toastTitle = "请求错误";
+							this.$refs.toast.showLoading() // 显示
+						}
 						
-		// 			})
-		// 		}
+					})
+			
+				}
 			}
 		},
 		onShareAppMessage(res) {
@@ -709,7 +731,14 @@
 		}
 
 	}
-		
+	
+	.footer-banner{
+		width: 690upx;
+		height: 332upx;
+		margin: 40upx auto;
+		border-radius: 26upx;
+		overflow: hidden;
+	}	
 	.home-menu{
 		width: 540upx;
 		margin: 40upx auto;

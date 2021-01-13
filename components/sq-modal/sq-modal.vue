@@ -45,6 +45,8 @@
 							this.toastType = "error";
 							this.$refs.toast.showLoading();
 						}
+					}).catch(err => {
+						console.log('reject',err)
 					});
 					
 					this.$emit('confirm')
