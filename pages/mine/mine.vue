@@ -34,7 +34,7 @@
 				  {title:'我的信息',url:'/pages/myInfo/myInfo',img:require('../../static/images/users/user_1.png')},
 				  {title:'学生信息管理',url:'/pages/children/children',img:require('../../static/images/users/user_2.png')},
 				  {title:'共同关注',url:'',img:require('../../static/images/users/user_3.png')},
-				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_4.png')},
+				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_4.png')}, 
 				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_5.png')},
 				  {title:'拭目以待',url:'',img:require('../../static/images/users/user_6.png')},
 				 ],

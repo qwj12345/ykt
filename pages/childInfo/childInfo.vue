@@ -15,8 +15,8 @@
 					<view>性别</view>
 				</view>
 				<view class="sexs">
-					<view class="sex marginR50" @click="changeSex"><uni-icons :type="sex===1?'circle-filled':'circle'" size="20" :color="sex===1?'rgb(244,157,26)':'#e0e0e0'"></uni-icons>男</view>
-					<view class="sex" @click="changeSex"><uni-icons :type="sex===2?'circle-filled':'circle'" size="20" :color="sex===2?'rgb(244,157,26)':'#e0e0e0'"></uni-icons>女</view>
+					<view class="sex marginR50" @click="changeSex"><uni-icons :type="sex===1?'circle-filled':'circle'" size="20" :color="sex===1?'#409efe':'#e0e0e0'"></uni-icons>男</view>
+					<view class="sex" @click="changeSex"><uni-icons :type="sex===2?'circle-filled':'circle'" size="20" :color="sex===2?'#409efe':'#e0e0e0'"></uni-icons>女</view>
 				</view>
 			</view>
 			

@@ -30,7 +30,7 @@
 			<!-- 没有添加小孩时 -->
 			<view v-else class="hide-top">
 				<image src="../../static/images/no_bing.png" ></image>
-				<view class="text">您还没有添加小孩哦~</view>
+				<view class="text">您还没有添加学生哦~</view>
 				<view class="btn" @click="goPage('/pages/childInfo/childInfo')">去添加</view>
 			</view>
 		</view>
@@ -199,8 +199,8 @@
 
 			// 选择孩子
 			chooseChild(item){
-				if(this.showStudent.id !== item.id){
-					this.showStudentId = item.id;
+				if(this.showStudent._id !== item._id){
+					this.showStudentId = item._id;
 					this.toggleChoose();
 					this.getStudentDetail();
 				}
@@ -331,10 +331,10 @@
 			},
 			// 获取课表
 			getSubject(){
-				console.log(222,this.showStudent)
+				
 				if(this.showStudent._id){
 					// this.nowDay.week===0? 7 : this.nowDay.week
-					let dayIndex = parseInt(this.nowDay.week==0? 7 : this.nowDay.week);
+					let dayIndex = parseInt(this.nowDay.week==0 ? 7 : this.nowDay.week);
 					let data = {
 						studentId :this.showStudent._id
 					}
@@ -346,7 +346,7 @@
 							let timetable = res.data.data;
 							for(let key in timetable){
 								let num = parseInt(key.slice(0,1));
-								console.log(num,dayIndex)
+							
 								if(num === dayIndex && dayIndex < 6){//筛选出当天的课表
 									let index = parseInt(key.slice(1,2));
 									if(index<=4 && timetable[key]){   //上午的课表
@@ -400,8 +400,6 @@
 			}
 		},
 		onLoad(query) {
-
-			console.log(123)
 			_self = this;
 			this.cWidth3=uni.upx2px(316); //这里要与样式的宽高对应
 			this.cHeight3=uni.upx2px(316);//这里要与样式的宽高对应  
