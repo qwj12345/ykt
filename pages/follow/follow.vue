@@ -113,9 +113,9 @@
 			})
 			this.visible = false;
 			return {
-				title:"和我一起关注孩子成长吧",
+				title:"和我一起关注学生成长吧",
 				path: "/pages/index/index?code="+this.code,// 路径，传递参数到指定页面。
-				desc:"关注孩子成长，关注儿童健康",
+				desc:"关注学生成长，关注儿童健康",
 				imageUrl:"https://level8cases.oss-cn-hangzhou.aliyuncs.com/eca9b36c-7350-4c90-8fde-1327b4d808ff.jpg"
 			}
 		},

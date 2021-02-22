@@ -1,0 +1,90 @@
+/* 头部（头像、昵称和积分部分） */
+.header.data-v-a0bfb838 {
+  width: 100vw;
+  height: 302rpx;
+  position: relative;
+}
+.header-img.data-v-a0bfb838 {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.header-user.data-v-a0bfb838 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 30rpx 0 20rpx 34rpx;
+  z-index: 2;
+}
+.user-info.data-v-a0bfb838 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #fff;
+}
+.user-avatar.data-v-a0bfb838 {
+  border-radius: 50%;
+  width: 86rpx;
+  height: 86rpx;
+  overflow: hidden;
+  margin-right: 26rpx;
+}
+.user-name.data-v-a0bfb838 {
+  font-weight: bold;
+  font-size: 34rpx;
+}
+.integral.data-v-a0bfb838 {
+  height: 52rpx;
+  border-top-left-radius: 26rpx;
+  border-bottom-left-radius: 26rpx;
+  background: #fff94f;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding-left: 22rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #ff581e;
+  font-size: 22rpx;
+}
+.integral-left.data-v-a0bfb838 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-right: 10rpx;
+}
+.integral-left .text.data-v-a0bfb838 {
+  -webkit-align-self: flex-end;
+          align-self: flex-end;
+}
+.fly-logo.data-v-a0bfb838 {
+  width: 27rpx;
+  height: 33rpx;
+  margin-right: 8rpx;
+}
+.integral-right.data-v-a0bfb838 {
+  font-size: 30rpx;
+  margin-right: 6vw;
+}
+image.data-v-a0bfb838,
+._img.data-v-a0bfb838 {
+  width: 100%;
+  height: 100%;
+}
+/* 头部（头像、昵称和积分部分）END */
+

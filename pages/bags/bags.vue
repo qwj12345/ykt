@@ -90,7 +90,7 @@
 				前往绑定
 			</navigator>
 		</view>
-		<!-- 选择需要绑定孩子的弹框 -->
+		<!-- 选择需要绑定学生的弹框 -->
 		<e-modal  :visible.sync="visible">
 			<view class="edit-subject">
 				<view class="top">
@@ -103,7 +103,7 @@
 					</view>
 				</radio-group >
 				<view v-if="children.length===0" class="no-child-text">
-					您还没有添加孩子哦~
+					您还没有添加学生哦~
 				</view>
 				<view v-if="children.length!==0" class="btn" @click="bindChild">确定</view>
 				<view v-if="children.length===0" class="btn" @click="goChild">立即添加</view>
@@ -139,11 +139,11 @@
 			openDetail(key){
 				this.products[key].open === true ? this.products[key].open = false : this.products[key].open = true;
 			},
-			// 选择孩子单选框事件
+			// 选择学生单选框事件
 			changeRadio(e){
 				this.childId = parseInt(e.detail.value);
 			},
-			// 跳到添加孩子
+			// 跳到添加学生
 			goChild(){
 				uni.navigateTo({
 					url:"../childInfo/childInfo"
@@ -270,7 +270,7 @@
 				}
 
 			},
-			// 绑定孩子
+			// 绑定学生
 			bindChild(){
 				let data = {
 					childId:this.childId,
@@ -286,7 +286,7 @@
 						this.products = [];
 						this.page = 0;
 						this.getProducts();  //改变一个产品状态后重新获取下产品列表
-						getApp().globalData.bagFlag = 1;//做个标记 让首页孩子产品更新
+						getApp().globalData.bagFlag = 1;//做个标记 让首页学生产品更新
 					}else{
 						this.toastType = "error";
 						this.toastTitle = "绑定失败";

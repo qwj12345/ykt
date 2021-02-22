@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "最新消息",
+  "usingComponents": {
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast"
+  }
+}

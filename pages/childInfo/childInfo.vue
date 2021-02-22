@@ -57,7 +57,7 @@
 					<view class="icon">*</view>
 					<view>学校</view>
 				</view>
-				<input v-model="school" placeholder="填写孩子就读的学校" placeholder-class="placeholder"/>
+				<input v-model="school" placeholder="填写学生就读的学校" placeholder-class="placeholder"/>
 			</view>
 			
 			<view class="item">
@@ -65,7 +65,7 @@
 					<view class="icon">*</view>
 					<view>年级</view>
 				</view>
-				<view class="block display-between-center" :style="classText==='请选择孩子的年级'? 'color:#999' : 'color:#333'" @click="showDate('QS_Picekr_custom_1')">
+				<view class="block display-between-center" :style="classText==='请选择学生的年级'? 'color:#999' : 'color:#333'" @click="showDate('QS_Picekr_custom_1')">
 					<view>{{classText}}</view>
 					<image src="../../static/images/face-right-9.png" mode="widthFix"></image>
 				</view>
@@ -137,12 +137,12 @@
 					}
 				},
 				buttonSet:{
-					confirmColor:"rgb(244,157,26)"
+					confirmColor:"#409efe"
 				},
 				dateText:"请选择出生日期",
 				dateText2:"请选择开始日期",
 				dateText3:"请选择结束日期",
-				classText:"请选择孩子的年级",
+				classText:"请选择学生的年级",
 				sex:1,
 				name:"",
 				height:"",
@@ -212,8 +212,8 @@
 						console.log(res)
 						this.$refs.loading.hideLoading(); // 显示
 						if(res.data.code===200){
-							getApp().globalData.childFlag = 1;//做个标记 让孩子列表页刷新
-							getApp().globalData.homeChildFlag = 1;//做个标记 让孩子列表页刷新
+							getApp().globalData.childFlag = 1;//做个标记 让学生列表页刷新
+							getApp().globalData.homeChildFlag = 1;//做个标记 让学生列表页刷新
 							this.toastType = "ring";
 							this.toastTitle = "保存成功";
 							this.$refs.toast.showLoading() // 显示

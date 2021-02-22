@@ -14,12 +14,12 @@
 		<!--  -->
 		<view v-else class="no-child">
 			<image src="../../static/images/no_child.png"></image>
-			<view>您还没有添加孩子~</view>
+			<view>您还没有添加学生~</view>
 		</view>
 		
 		<!-- 按钮 -->
 		<view  class="bootom-l-btn" @click="goDetail" >
-			添加孩子
+			添加学生
 		</view>
 		<!-- 手机号授权 -->
 		<phone-modal ref="phone"></phone-modal>
@@ -68,7 +68,7 @@
 					this.$refs.sq.toggle();
 				}
 			},
-			// 获取孩子列表  
+			// 获取学生列表  
 			getChildren:async function(){
 				await this.$nextTick(); //适配H5(h5使用$refs)操作子组件时如果子组件一开始是隐藏的那么直接用$refs是会undefined
 				this.$refs.loading.showLoading() // 显示

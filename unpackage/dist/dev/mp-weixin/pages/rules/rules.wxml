@@ -1,0 +1,1 @@
+<view id="rule"><view><rich-text nodes="{{contentText}}"></rich-text></view></view>

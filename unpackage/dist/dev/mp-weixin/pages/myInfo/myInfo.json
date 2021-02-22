@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的信息",
+  "usingComponents": {
+    "wyb-loading": "/components/wyb-loading/wyb-loading",
+    "my-toast": "/components/my-toast/my-toast",
+    "q-spicker": "/components/QuShe-picker/QuShe-picker"
+  }
+}

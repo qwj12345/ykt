@@ -299,8 +299,8 @@
 			font-size: 32upx;
 			letter-spacing: 2upx;
 			color: #fff;
-			background: linear-gradient(left,rgb(255,169,41),rgb(255,131,31));
-			box-shadow: 0 3upx 16upx 0upx rgb(255,155,31);
+			background: linear-gradient(left,#6bbbfb,#3393fb);
+			box-shadow: 0 3upx 16upx 0upx #6bbbfb;
 		}
 	}
 

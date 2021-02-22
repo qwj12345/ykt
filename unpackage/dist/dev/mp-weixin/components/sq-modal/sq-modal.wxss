@@ -1,0 +1,36 @@
+.modal-content {
+  padding: 32rpx 40rpx;
+}
+.modal-btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  border-top: 2rpx solid #efefef;
+}
+.modal-btns .cancel {
+  color: #bbb;
+  width: 50%;
+  box-sizing: border-box;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-right: 2rpx solid #efefef;
+  text-align: center;
+}
+.modal-btns .confirm {
+  width: 50%;
+  box-sizing: border-box;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #f49d1a;
+  text-align: center;
+}
+.modal-btns button {
+  background: none !important;
+  font-size: 28rpx;
+}
+.modal-btns button::after {
+  border: none !important;
+}
+

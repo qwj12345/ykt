@@ -177,7 +177,7 @@
 			// 
 			goPage(url){
 				if(this.isLogin){
-					if(url.search('editTable')!==-1 && this.students.length===0){//还没有小孩子时无法编辑课表
+					if(url.search('editTable')!==-1 && this.students.length===0){//还没有小学生时无法编辑课表
 						this.toastTitle = "请先添加小孩";
 						this.toastType = "none";
 						this.$refs.toast.showLoading();
@@ -197,7 +197,7 @@
 				this.showChoose ? this.showChoose = false : this.showChoose = true;
 			},
 
-			// 选择孩子
+			// 选择学生
 			chooseChild(item){
 				if(this.showStudent._id !== item._id){
 					this.showStudentId = item._id;
@@ -218,7 +218,7 @@
 					})
 				}
 			},
-			// 获取孩子列表
+			// 获取学生列表
 			getStudent(){
 				this.myRequest("student/findStudent",{data:{},method:'GET',contentType:"application/json"}).then(res =>{
 					if(res.data.code===200 && res.data.data.length!==0){
@@ -724,7 +724,7 @@
 				box-sizing: border-box;
 				font-size: 24upx;
 				margin-top: 30upx;
-				border: 2upx solid @mainColor;
+				border: 2upx solid @mainColor;
 			}
 		}
 
