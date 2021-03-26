@@ -21,12 +21,12 @@ export function timeFormat1(nS,type) {
     let Z = date.getDay();
     if(type === 0)
         return {
-			month:`${M}月${Y}`,
+			month:`${M}月${Y}`, 
 			day:`${D}`,
 			week:`${Z}`	
 		}
 	else if (type===3){
-		return `${Y}/${M}/${D}`; // yyyy-mm-dd
+		return `${Y}/${M}/${D}`; // yyyy-mm-dd 
 	}
     else
         return `${M}/${D} ${H}:${minute}`; // mm-dd hh:minute
@@ -43,7 +43,7 @@ export function dateDifference(sDate1, sDate2) {    //sDate1和sDate2是2006-12-
         iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
         return iDays
     };
-// -----------------------封装uni.request请求--------------------
+// -----------------------封装uni.request请求 --------------------
 export function myRequest(url,config){
     return new Promise(function(resolve,reject){ 
         let { 

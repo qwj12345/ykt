@@ -1,1 +1,1 @@
-<view id="rule"><view><rich-text nodes="{{contentText}}"></rich-text></view></view>
+<view id="rule"><view>此项目一开始是个人为了加入‘盐课堂’（写完后发现不招人了）顺便练习nodejs编写后台，走向全栈而编写的项目，如有没有任何商业行为，如有侵权，请联系微信/手机15159223513。</view></view>

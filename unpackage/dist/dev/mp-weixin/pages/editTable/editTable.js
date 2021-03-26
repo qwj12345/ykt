@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   // ip:'http://192.168.65.13:3000/',//http://192.168.65.13:3000/
-  ip: 'https://xc.frbkw.com/' //正式
+  ip: 'https://api.frbkw.com/' //正式
 };exports.default = _default;
 
 /***/ }),
@@ -262,7 +262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _common = __webpack_require__(/*! ../../common/common.js */ 12);var QSpicker = function QSpicker() {Promise.all(/*! require.ensure | components/QuShe-picker/QuShe-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/QuShe-picker/QuShe-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/QuShe-picker/QuShe-picker.vue */ 265));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _common = __webpack_require__(/*! ../../common/common.js */ 12);var QSpicker = function QSpicker() {Promise.all(/*! require.ensure | components/QuShe-picker/QuShe-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/QuShe-picker/QuShe-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/QuShe-picker/QuShe-picker.vue */ 272));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {

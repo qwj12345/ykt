@@ -130,7 +130,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
 //
 //
 //
@@ -144,23 +146,22 @@ var _default =
 
   },
   methods: {
-    prevImg: function prevImg() {
-      uni.previewImage({
-        //当前显示图片
-        urls: [this.uploadImgUrl] });
-
-    } },
-
-  onLoad: function onLoad(query) {var _this = this;
-    var data = {
-      type: query.type,
-      company: "GMT" };
-
-    this.myRequest('miniProgram/api/sys/getExplain', { data: data }).then(function (res) {
-      _this.contentText = res.data.data.content;
-    });
+    // prevImg(){
+    // 	uni.previewImage({
+    // 		//当前显示图片
+    // 		urls: [this.uploadImgUrl]
+    // 	})
+    // },
+  },
+  onLoad: function onLoad(query) {
+    // let data = {
+    // 	type:query.type,
+    // 	company:"GMT"
+    // }
+    // this.myRequest('miniProgram/api/sys/getExplain',{data}).then(res => {
+    // 	this.contentText = res.data.data.content;
+    // })
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

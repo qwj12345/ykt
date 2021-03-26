@@ -86,7 +86,8 @@
 		</view>
 		<!--  -->
 		<view class="footer-banner">
-			<img src="https://level8cases.oss-cn-hangzhou.aliyuncs.com/640-47d004cf-f8c2-4e32-bfca-75333f2f2610.gif" />
+			<!-- https://level8cases.oss-cn-hangzhou.aliyuncs.com/640-47d004cf-f8c2-4e32-bfca-75333f2f2610.gif -->
+			<img src="https://level8cases.oss-cn-hangzhou.aliyuncs.com/22-c9ff60d9-75d5-4117-8699-8d5a412eec80.png" />
 		</view>
 		<!-- 菜单栏 -->
 		<view class="home-menu display-between-center">
@@ -103,6 +104,10 @@
 		<phone-modal ref="phone"></phone-modal>
 		<!-- 小程序授权 -->
 		<sq-modal ref="sq"></sq-modal>
+		<!--  -->
+		<e-modal  :visible.sync="visible"  >
+			<view style="text-align: center;" class="popupModal">此项目为个人爱好编写，不是‘盐课堂’官方，仅为个人测试，如有侵权，请联系15159223513删除。</view>
+		</e-modal>
 	</view>
 </template>
 
@@ -116,7 +121,7 @@
 		data() {
 			return {
 				invitationCode:"",//邀请码
-			
+				visible:false,
 				toastTitle:"",
 				toastType:"ring",
 				showChoose:false,
@@ -264,7 +269,7 @@
 				// 获取日期后再获取课表
 				this.getSubject();
 			},
-			// 获取天气
+			// 获取天气  
 			getWeather(key){
 				var myAmapFun = new amap.AMapWX({key:key});//高德获取地理位置
 				myAmapFun.getRegeo({
@@ -417,6 +422,9 @@
 	@topHeight:520upx;
 	page{
 		background: rgb(251,251,251);
+	}
+	.popupModal{
+		padding: 20upx 24upx;
 	}
 	.page-top{
 		background-image: url("/static/images/page_top.png");//图片没有超过40k会自动转换成base64

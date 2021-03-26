@@ -78,7 +78,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   // ip:'http://192.168.65.13:3000/',//http://192.168.65.13:3000/
-  ip: 'https://xc.frbkw.com/' //正式
+  ip: 'https://api.frbkw.com/' //正式
 };exports.default = _default;
 
 /***/ }),
@@ -188,6 +188,9 @@ try {
     },
     sqModal: function() {
       return Promise.all(/*! import() | components/sq-modal/sq-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/sq-modal/sq-modal")]).then(__webpack_require__.bind(null, /*! @/components/sq-modal/sq-modal.vue */ 241))
+    },
+    eModal: function() {
+      return __webpack_require__.e(/*! import() | components/e-modal/e-modal */ "components/e-modal/e-modal").then(__webpack_require__.bind(null, /*! @/components/e-modal/e-modal.vue */ 248))
     }
   }
 } catch (e) {
@@ -243,6 +246,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
 
 
 
@@ -461,9 +469,14 @@ var _common = __webpack_require__(/*! ../../common/common.js */ 12);function _in
 //
 //
 //
+//
+//
+//
+//
+//
 //高德地图api
 var _self;var _default = { data: function data() {return { invitationCode: "", //邀请码
-      toastTitle: "", toastType: "ring", showChoose: false, menus: [// {icon:require("../../static/images/menus/menu4.png"),name:"我的书包",url:""},
+      visible: false, toastTitle: "", toastType: "ring", showChoose: false, menus: [// {icon:require("../../static/images/menus/menu4.png"),name:"我的书包",url:""},
         // {icon:require("../../static/images/menus/menu5.png"),name:"最新消息",url:""},
         // {icon:require("../../static/images/menus/menu6.png"),name:"添加关注",url:""},
       ], swiperIndex: 0, cWidth3: '', //圆弧进度图
@@ -483,12 +496,7 @@ var _self;var _default = { data: function data() {return { invitationCode: "", /
     getStudent: function getStudent() {var _this = this;this.myRequest("student/findStudent", { data: {}, method: 'GET', contentType: "application/json" }).then(function (res) {if (res.data.code === 200 && res.data.data.length !== 0) {_this.students = res.data.data;_this.showStudentId = res.data.data[0]._id;_this.getStudentDetail();}});}, // 获取儿童详情  
     getStudentDetail: function getStudentDetail() {var _this2 = this;var data = { id: this.showStudentId };this.$refs.loading.showLoading(); // 显示
       this.myRequest("student/findStudentDetail", { data: data, method: 'GET' }).then(function (res) {_this2.$refs.loading.hideLoading(); //  101
-        if (res.data.code === 200) {_this2.showStudent = res.data.data;
-          var dataL = (0, _common.dateDifference)(_this2.showStudent.startTime, (0, _common.timeFormat1)(new Date(), 3)) / (0, _common.dateDifference)(_this2.showStudent.startTime, _this2.showStudent.endTime);
-          _this2.canvasText = dataL >= 1 ? '100' : Math.round(dataL * 100);
-          var chartData = {
-            series: [{
-              data: dataL >= 1 ? 1 : dataL,
+        if (res.data.code === 200) {_this2.showStudent = res.data.data;var dataL = (0, _common.dateDifference)(_this2.showStudent.startTime, (0, _common.timeFormat1)(new Date(), 3)) / (0, _common.dateDifference)(_this2.showStudent.startTime, _this2.showStudent.endTime);_this2.canvasText = dataL >= 1 ? '100' : Math.round(dataL * 100);var chartData = { series: [{ data: dataL >= 1 ? 1 : dataL,
               color: dataL >= 1 ? 'rgb(232,56,58)' : 'rgb(255,255,255)' }] };
 
 
@@ -508,7 +516,7 @@ var _self;var _default = { data: function data() {return { invitationCode: "", /
       // 获取日期后再获取课表
       this.getSubject();
     },
-    // 获取天气
+    // 获取天气  
     getWeather: function getWeather(key) {
       var myAmapFun = new _amapWx.default.AMapWX({ key: key }); //高德获取地理位置
       myAmapFun.getRegeo({

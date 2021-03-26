@@ -508,7 +508,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   // ip:'http://192.168.65.13:3000/',//http://192.168.65.13:3000/
-  ip: 'https://xc.frbkw.com/' //正式
+  ip: 'https://api.frbkw.com/' //正式
 };exports.default = _default;
 
 /***/ })

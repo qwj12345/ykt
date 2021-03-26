@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   // ip:'http://192.168.65.13:3000/',//http://192.168.65.13:3000/
-  ip: 'https://xc.frbkw.com/' //正式
+  ip: 'https://api.frbkw.com/' //正式
 };exports.default = _default;
 
 /***/ }),
@@ -150,7 +150,7 @@ var components
 try {
   components = {
     eModal: function() {
-      return __webpack_require__.e(/*! import() | components/e-modal/e-modal */ "components/e-modal/e-modal").then(__webpack_require__.bind(null, /*! @/components/e-modal/e-modal.vue */ 276))
+      return __webpack_require__.e(/*! import() | components/e-modal/e-modal */ "components/e-modal/e-modal").then(__webpack_require__.bind(null, /*! @/components/e-modal/e-modal.vue */ 248))
     },
     myToast: function() {
       return __webpack_require__.e(/*! import() | components/my-toast/my-toast */ "components/my-toast/my-toast").then(__webpack_require__.bind(null, /*! @/components/my-toast/my-toast.vue */ 227))
